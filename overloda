@@ -54,9 +54,11 @@ void main()
 	Sale_item t(string("1212-122-12-X"),10,120.0);
 	Sale_item t1(string("1212-122-12-X"), 10, 120.0);
 	Sale_item result = t1 + t;
-	
 	cout << result;
-	//Sale_item(t);
+
+	Sale_item t3(("1212-122-12-X"),100,120.0);
+	result +=t3;//使用+= 操作符；	
+	cout << result;
 	system("pause");
 }
 
