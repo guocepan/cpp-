@@ -9,6 +9,7 @@ public:
 
 	String( char const *s ="");//构造函数，用string创建一个s对象
 	String &operator=(String const&);//重载=。返回类型是String&
+	String &operator=(char *str);
 private:
 	char *ptrChars;
 
@@ -36,6 +37,18 @@ String &String::operator=(String const &scr)
 	//String &a =*this;因为this是指针；
 	// int b;
 	// int  &a=b;
+}
+//重载=用于传入的是指针字符串的时候；
+String &String::operator=(char *str)
+{
+	if(strlen(ptrChars) != strlen(str))
+	{
+		char *pnew=new char[strlen(str)+1];	
+		delete[]ptrChars;
+		ptrChars =pnew;
+	}
+	strcpy_s(ptrChars,strlen(str)+1,str);
+	return *this;
 }
 
 
@@ -65,6 +78,10 @@ void  main()
 	String s("book");//调用构造函数
 	String d("ww");
 	s = d;//调用=重载，s默认为this指向的对象，d传进去的值
+	cout << s;
+	cout << d;
+	char *arr="hello word";
+	s=arr;
 	cout << s;
 	cout << d;
 
