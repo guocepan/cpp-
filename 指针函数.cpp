@@ -47,7 +47,13 @@ void main()
 	char  src[] = "adfassd add";
 	//mystrycpy(det, src);
 	mystrcpy2(det,src);
-		cout << det << endl;
-		system("pause");
-		exit(0);
+	cout << det << endl;
+	char *ret = NULL;
+
+	char *ret = NULL;
+	ret = mystrcpy2(det, src);
+	cout << ret;
+	system("pause");
+	
+	exit(0);
 }
